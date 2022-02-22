@@ -1,0 +1,110 @@
+@import "~antd/dist/antd.css";
+
+#components-layout-demo-custom-trigger .trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+.login-form {
+  width: 80%;
+  display: inline-block;
+  align-items: center;
+}
+.login-form-item {
+  margin: 10%;
+}
+.login-form-button {
+  width: 100%;
+}
+
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}
+@media (max-width: 700px) {
+  .navbar {
+    background-color: #001529;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: inherit;
+  }
+  .sidebar{
+    display: none;
+  }
+}
+.navbar {
+  background-color: #001529;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: none;
+}
+@media (max-width: 767px) {
+  .navbar {
+    display: inherit;
+  }
+  .sidebar{
+    display: none;
+  }
+}
+.ant-drawer-header {
+  border-radius: 0;
+  color: white;
+  text-align: center;
+  background-color: #001529;
+}
+.ant-drawer-title{
+  color: white;
+  font-size: 1.2rem;
+}
+.ant-drawer-body {
+  background-color: #001529;
+  color: #fff;
+  height: calc(100vh - 55px);
+}
+
+.notif:before {
+  content: attr(data-count);
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  line-height: 18px;
+  text-align: center;
+  display: block;
+  border-radius: 50%;
+  background: rgb(244, 44, 44);
+  border: 1px solid #FFF;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  color: #FFF;
+  position: absolute;
+  top: -7px;
+  left: -7px;
+}

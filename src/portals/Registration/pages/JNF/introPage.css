@@ -1,0 +1,13 @@
+.content-text {
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; */
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 2.8125px;
+  text-transform: uppercase;
+  color: #666666;
+}
+.introPage-header {
+  display: flex;
+  flex-direction: column;
+}

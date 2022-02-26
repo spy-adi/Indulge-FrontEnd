@@ -1,0 +1,9 @@
+export { default as Dashboard} from "../pages/Dashboard";
+export { default as AddScholar} from "../pages/INF/AddScholar";
+export { default as AddSupervisor} from "../pages/INF/AddSupervisor";
+export { default as AddExaminer} from "../pages/INF/AddExaminer";
+export { default as AddNew} from "../pages/INF/AddNew";
+export { default as INF} from "../pages/INF/INF";
+export { default as JNF} from "../pages/JNF/JNF";
+export { default as Step1} from "../pages/JNF/Step1";
+export { default as Step2} from "../pages/JNF/Step2";

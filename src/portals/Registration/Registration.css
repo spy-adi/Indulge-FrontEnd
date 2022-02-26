@@ -1,0 +1,89 @@
+.form-header {
+    background-color: #001529;
+    color: white;
+    font-size: larger;
+    font-family: "Open Sans";
+  }
+  .form-body {
+    background-color: #f0ece3;
+  }
+  
+  .form-header {
+    background-color: #001529;
+    color: white;
+  }
+  .form-body {
+    background-color: #f0ece3;
+  }
+  .shadow {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  .outer-shadow {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+      rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  }
+  
+  .lii {
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+  }
+  .dashboard-header--text.col-lg-6 {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .dashboard-header--image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashimage {
+    width: 60%;
+    position: absolute;
+    transition: all 1.5s;
+  }
+  .dashimage:hover {
+    transform: scale(1.05);
+    z-index: 20;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .dashboard-header {
+      height: 80vh;
+      margin-bottom: 20vh;
+    }
+    .dashimage-i1 {
+      left: 0;
+    }
+    .dashimage-i2 {
+      top: 50;
+      right: 0;
+    }
+    .dashimage-i3 {
+      top: 60px;
+      left: 0;
+    }
+  }
+  @media only screen and (min-width: 769px) {
+    .dashboard-header {
+      height: 50vh;
+      margin-bottom: 10vh;
+    }
+    .dashimage-i1 {
+      top: 50;
+      left: 0px;
+    }
+    .dashimage-i2 {
+      top: 50;
+      right: 0;
+      /* display: none; */
+    }
+    .dashimage-i3 {
+      bottom: 0;
+      left: 10px;
+      /* display: none; */
+    }
+  }

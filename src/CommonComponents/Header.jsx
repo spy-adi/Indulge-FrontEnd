@@ -27,7 +27,7 @@ function Headerr() {
     }
     window.addEventListener("resize", handleResize);
   });
-  if (size < 767) {
+  if (size < 768) {
     return (
       <Header
         className="site-layout-background"

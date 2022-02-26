@@ -66,7 +66,7 @@ export default function Login() {
                               class="btn btn-primary"
                               // onClick={onSubmit}
                             >
-                              Login
+                              LogIn
                             </button>
                         </form>
                       </div>

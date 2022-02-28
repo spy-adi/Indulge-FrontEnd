@@ -2,15 +2,20 @@ import React from "react";
 import { Layout } from "antd";
 import { Headerr, Footerr, SideBar, Navbar } from "../../CommonComponents";
 import {
-  AddScholar,
-  AddSupervisor,
-  AddExaminer,
   Dashboard,
-  AddNew,
   JNF,
   INF,
-  Step1,
-  Step2,
+  Step1J,
+  Step2J,
+  Step3J,
+  Step4J,
+  Step5J,
+  Step1I,
+  Step2I,
+  Step3I,
+  Step4I,
+  Step5I,
+  Forums,
 } from "./components";
 import { Routes, Route } from "react-router-dom";
 import menu from "./menu";
@@ -25,14 +30,19 @@ function Registration() {
           <Headerr />
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/add_new" element={<AddNew />} />
-            <Route path="/add_new/scholar" element={<AddScholar />} />
-            <Route path="/add_new/supervisor" element={<AddSupervisor />} />
-            <Route path="/add_new/examiner" element={<AddExaminer />} />
-            <Route path="/intern" element={<INF />} />
+            <Route path="/forum" element={<Forums />} />
             <Route path="/placement" element={<JNF />} />
-            <Route path="/placement/addNew/s1" element={<Step1 />} />
-            <Route path="/placement/addNew/s2" element={<Step2 />} />
+            <Route path="/placement/addNew/s1" element={<Step1J />} />
+            <Route path="/placement/addNew/s2" element={<Step2J />} />
+            <Route path="/placement/addNew/s3" element={<Step3J />} />
+            <Route path="/placement/addNew/s4" element={<Step4J />} />
+            <Route path="/placement/addNew/s5" element={<Step5J />} />
+            <Route path="/intern" element={<INF />} />
+            <Route path="/intern/addNew/s1" element={<Step1I />} />
+            <Route path="/intern/addNew/s2" element={<Step2I />} />
+            <Route path="/intern/addNew/s3" element={<Step3I />} />
+            <Route path="/intern/addNew/s4" element={<Step4I />} />
+            <Route path="/intern/addNew/s5" element={<Step5I />} />
           </Routes>
           <Footerr />
         </Layout>

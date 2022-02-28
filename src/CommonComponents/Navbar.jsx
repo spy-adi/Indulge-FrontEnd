@@ -51,7 +51,7 @@ function Navbar(props) {
         onClick={() => setVisible(true)}
       />
       <Drawer
-        title="TMS"
+        title="IPRP"
         placement="left"
         onClose={() => setVisible(false)}
         visible={visible}

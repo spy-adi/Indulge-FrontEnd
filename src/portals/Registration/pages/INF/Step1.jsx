@@ -26,6 +26,11 @@ const layout = {
   sector.push(<Option key={"ecom"}>{"E-commerce"}</Option>);
   sector.push(<Option key={"other"}>{"Other"}</Option>);
 
+  const duration = [];
+
+  duration.push(<Option key={"2mon"}>{"May-July 2022 (For ALL Pre-final year students - 2023 Batch)"}</Option>);
+  duration.push(<Option key={"6mon"}>{"July - Dec 2022(For Final Year M.Tech/ MBA - Business Analytics students - 2022 Batch)"}</Option>);
+
 const validateMessages = {
     required: '${label} is required!',
     types: {
@@ -37,7 +42,7 @@ const validateMessages = {
     },
   };
 
-function Step1J() {
+function Step1I() {
 
       
   const [form] = Form.useForm();
@@ -124,6 +129,27 @@ function Step1J() {
       <Form.Item name={['job', 'description']} label="Job Description">
         <Input.TextArea />
       </Form.Item>
+
+      <Form.Item label="Mode of Internship?">
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Option value="vir">Virtual</Option>
+        <Option value="phy">Physical</Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item label="Internship Duration">
+      <Select
+      mode="multiple"
+      allowClear
+      style={{ width: '100%' }}
+      placeholder="Please select"
+      defaultValue={[]}
+      onChange={handleChange}
+    >
+      {duration}
+    </Select>
+      </Form.Item>
+
       <Form.Item
         name={['job', 'place']}
         label="Place of Posting"
@@ -149,4 +175,4 @@ function Step1J() {
   );
 }
 
-export default Step1J;
+export default Step1I;

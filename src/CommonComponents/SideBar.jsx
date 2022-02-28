@@ -51,7 +51,7 @@ function SideBar(props) {
           {collapsed && (
             <img src={mainlogo} alt="" style={{ height: "45px" }} />
           )}
-          {!collapsed && <h1 style={{ color: "white" }}>TMS</h1>}
+          {!collapsed && <h1 style={{ color: "white" }}>IPRP</h1>}
         </span>
       </div>
       <Menu

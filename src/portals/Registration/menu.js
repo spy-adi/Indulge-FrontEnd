@@ -34,17 +34,17 @@ const menu =[
         ]
     },
     {
-        key:"/reg/files",
-        path:"/reg/files",
+        key:"/reg/preview",
+        path:"/reg/preview",
         icon:<FolderViewOutlined />,
-        name:"Files",
+        name:"Preview",
         children:null
     },
     {
-        key:"/reg/add_new",
-        path:"/reg/add_new",
+        key:"/reg/forum",
+        path:"/reg/forum",
         icon:<PlusCircleOutlined />,
-        name:"Add New",
+        name:"Forum",
         children:null
     }
 ]

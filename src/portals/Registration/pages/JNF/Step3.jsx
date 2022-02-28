@@ -1,52 +1,10 @@
 import React, {useState} from "react";
 import { Layout, Form, Button, Select } from "antd";
-import {  } from 'antd';
+import { btech4yr, dd, dm, im  } from "../../data";
 import { Link } from "react-router-dom";
 
 const { Content } = Layout;
 const { Option } = Select;
-const btech4yr = [];
-
-btech4yr.push(<Option key={"cve"}>{"Civil Engineering"}</Option>);
-btech4yr.push(<Option key={"chem"}>{"Chemical Engineering"}</Option>);
-btech4yr.push(<Option key={"cse"}>{"Computer Science and Engineering"}</Option>);
-btech4yr.push(<Option key={"ep"}>{"Engineering Physics Engineering"}</Option>);
-btech4yr.push(<Option key={"ee"}>{"Electrical Engineering"}</Option>);
-btech4yr.push(<Option key={"ece"}>{"Electronics and Communication Engineering"}</Option>);
-btech4yr.push(<Option key={"eie"}>{"Electronics and Instrumentation Engineering"}</Option>);
-btech4yr.push(<Option key={"ev"}>{"Environmental Engineering"}</Option>);
-btech4yr.push(<Option key={"mech"}>{"Mechanical Engineering"}</Option>);
-btech4yr.push(<Option key={"me"}>{"Mineral Engineering"}</Option>);
-btech4yr.push(<Option key={"fme"}>{"Mining Engineering"}</Option>);
-btech4yr.push(<Option key={"mme"}>{"Mining and Machinery Engineering"}</Option>);
-btech4yr.push(<Option key={"pe"}>{"Petroleum Engineering"}</Option>);
-
-const dm = [];
-
-dm.push(<Option key={"cve"}>{"Second Major Civil Engineering"}</Option>);
-dm.push(<Option key={"chem"}>{"Second Major Chemical Engineering"}</Option>);
-dm.push(<Option key={"cse"}>{"Second Major Computer Science and Engineering"}</Option>);
-dm.push(<Option key={"ep"}>{"Second Major Engineering Physics Engineering"}</Option>);
-dm.push(<Option key={"ee"}>{"Second Major Electrical Engineering"}</Option>);
-dm.push(<Option key={"ece"}>{"Second Major Electronics and Communication Engineering"}</Option>);
-dm.push(<Option key={"eie"}>{"Second Major Electronics and Instrumentation Engineering"}</Option>);
-dm.push(<Option key={"ev"}>{"Second Major Environmental Engineering"}</Option>);
-dm.push(<Option key={"mech"}>{"Second Major Mechanical Engineering"}</Option>);
-dm.push(<Option key={"me"}>{"Second Major Mineral Engineering"}</Option>);
-dm.push(<Option key={"fme"}>{"Second Major Second Major Mining Engineering"}</Option>);
-dm.push(<Option key={"mme"}>{"Second Major Mining and Machinery Engineering"}</Option>);
-dm.push(<Option key={"pe"}>{"Second Major Petroleum Engineering"}</Option>);
-
-const dd = [];
-
-dd.push(<Option key={"cse"}>{"Computer Science and Engineering"}</Option>);
-
-
-const im = [];
-
-im.push(<Option key={"mnc"}>{"Mathematics and Computing"}</Option>);
-im.push(<Option key={"ag"}>{"Applied Geology"}</Option>);
-im.push(<Option key={"ap"}>{"Applied Geophysics"}</Option>);
 
 const layout = {
     labelCol: {

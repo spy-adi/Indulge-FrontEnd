@@ -1,35 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Layout } from "antd";
 import { Form, Input, Select, Button } from 'antd';
+import { sector,duration } from "../../data";
+import { job, company } from "./dataINF";
 import { Link } from "react-router-dom";
 
 const { Content } = Layout;
 const { Option } = Select;
-
-const layout = {
-    labelCol: {
-      span: 6,
-    },
-    wrapperCol: {
-      span: 16,
-    },
-  };
-
-  const sector = [];
-
-  sector.push(<Option key={"ana"}>{"Analytics"}</Option>);
-  sector.push(<Option key={"con"}>{"Consulting"}</Option>);
-  sector.push(<Option key={"coret"}>{"Core(Technical)"}</Option>);
-  sector.push(<Option key={"bfsi"}>{"BFSI"}</Option>);
-  sector.push(<Option key={"its"}>{"IT/Software"}</Option>);
-  sector.push(<Option key={"edt"}>{"Ed Tech"}</Option>);
-  sector.push(<Option key={"ecom"}>{"E-commerce"}</Option>);
-  sector.push(<Option key={"other"}>{"Other"}</Option>);
-
-  const duration = [];
-
-  duration.push(<Option key={"2mon"}>{"May-July 2022 (For ALL Pre-final year students - 2023 Batch)"}</Option>);
-  duration.push(<Option key={"6mon"}>{"July - Dec 2022(For Final Year M.Tech/ MBA - Business Analytics students - 2022 Batch)"}</Option>);
 
 const validateMessages = {
     required: '${label} is required!',
@@ -52,14 +29,16 @@ function Step1I() {
   }
 
       const onFinish = (values) => {
-        console.log(values);
+        job = values.job;
+        company = values.company;
+        console.log(values.job);
+        console.log(job);
+        console.log(company);
       };
 
   return (
     <Content style={{ margin: "25px 25px" }}>
-    {/* <Button type="primary" style={{marginRight:'10px'}}>
-          Back
-        </Button> */}
+
     <div style={{margin:'5% 0'}}>
     <div style={{textAlign:'center'}}>
     <h2>Company & Job details</h2></div>
@@ -72,7 +51,7 @@ function Step1I() {
       validateMessages={validateMessages}
     >
     <Form.Item
-        name={['job', 'company']}
+        name={['company', 'name']}
         label="Company Name"
         rules={[
           {
@@ -83,7 +62,7 @@ function Step1I() {
         <Input />
       </Form.Item>
       <Form.Item
-        name={['job', 'email']}
+        name={['company', 'email']}
         label="Company Email"
         rules={[
           {
@@ -94,7 +73,10 @@ function Step1I() {
         <Input />
       </Form.Item>
 
-      <Form.Item label="Industry Sector">
+      <Form.Item 
+      label="Industry Sector"
+      name={['company', 'sector']}
+      >
       <Select
       mode="multiple"
       allowClear
@@ -108,7 +90,7 @@ function Step1I() {
       </Form.Item>
 
       <Form.Item
-        name={['company', 'sector']}
+        name={['company', 'sector1']}
         label="If selected other, Industry Sector:"
       >
         <Input />
@@ -130,14 +112,20 @@ function Step1I() {
         <Input.TextArea />
       </Form.Item>
 
-      <Form.Item label="Mode of Internship?">
+      <Form.Item 
+      label="Mode of Internship?"
+      name={['job', 'mode']}
+      >
         <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
         <Option value="vir">Virtual</Option>
         <Option value="phy">Physical</Option>
         </Select>
       </Form.Item>
 
-      <Form.Item label="Internship Duration">
+      <Form.Item 
+      label="Internship Duration"
+        name={['job', 'duration']}
+        >
       <Select
       mode="multiple"
       allowClear

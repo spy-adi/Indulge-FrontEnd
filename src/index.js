@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import {Login, Registration} from './portals';
+import {Login, Registration,Signup} from './portals';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
@@ -11,6 +11,7 @@ function App() {
       <Router>
             <Routes>
               <Route path='/' element={<Login/>} />
+              <Route path='/register' element={<Signup/>} />
               <Route path='reg/*' element={<Registration />} />
             </Routes>
       </Router>

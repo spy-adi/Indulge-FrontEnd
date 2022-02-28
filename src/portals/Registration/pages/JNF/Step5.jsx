@@ -1,22 +1,12 @@
 import React, {useState} from "react";
 import { Layout, Form, Button, Select, Input, Divider, message, Upload } from "antd";
-import {  } from 'antd';
+import { test, qround } from '../../data';
 import { Link } from "react-router-dom";
 import { UploadOutlined } from '@ant-design/icons';
 
 const { Content } = Layout;
 const { Option } = Select;
 
-const test = [];
-
-test.push(<Option key={"tech"}>{"Technical"}</Option>);
-test.push(<Option key={"apti"}>{"Aptitude"}</Option>);
-
-const qround = [];
-
-qround.push(<Option key={"gd"}>{"Group Discussion"}</Option>);
-qround.push(<Option key={"cs"}>{"Case Study"}</Option>);
-qround.push(<Option key={"int"}>{"Interview"}</Option>);
 
 const layout = {
     labelCol: {

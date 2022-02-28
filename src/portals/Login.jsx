@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Layout } from "antd";
 
 export default function Login() {
+
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
 
   return (
     <Layout style={{ minHeight: "100vh"}}>
@@ -40,7 +43,7 @@ export default function Login() {
                           <div class="form-group" style={{ margin: "8%" }}>
                             <input
                               name="id"
-                              // onChange={onChange}
+                              onChange={(e) => setemail(e.target.value)}
                               class="form-control"
                               placeholder="Username"
                             />
@@ -49,7 +52,7 @@ export default function Login() {
                             <input
                               type="password"
                               name="password"
-                              // onChange={onChange}
+                              onChange={(e) => setpassword(e.target.value)}
                               class="form-control"
                               placeholder="Password"
                             />
@@ -70,7 +73,7 @@ export default function Login() {
                             </button>
                         </form>
                       </div>
-                        <p>Don't have an account <a href="#">Sign UP</a></p>
+                        <p>Don't have an account <a href="/register">Sign UP</a></p>
                     </div>
                   </div>
                 </div>

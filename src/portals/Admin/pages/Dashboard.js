@@ -12,7 +12,7 @@ function Dashboard() {
       <div className="container">
         <Card
           className="outer-shadow"
-          title="INF/JNF Received"
+          title="Recent INF/JNF Received"
           style={{ minHeight: 300 }}
           headStyle={titleStyle}
         >

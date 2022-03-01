@@ -14,6 +14,13 @@ const adminmenu = [
     children: null,
   },
   {
+    key: "/ad/details",
+    path: "/ad/details",
+    icon: <DashboardOutlined />,
+    name: "Details",
+    children: null,
+  },
+  {
     key: "/ad/forum",
     path: "/ad/forum",
     icon: <QuestionOutlined />,

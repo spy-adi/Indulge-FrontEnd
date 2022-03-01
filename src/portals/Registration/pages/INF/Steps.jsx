@@ -5,6 +5,8 @@ import "../introPage.css";
 import { test, sector, btech4yr, im, dd, dm, mtech, phd, mba, msc2yr, msc3yr, qround,  } from "../../data";
 import { Link } from "react-router-dom";
 import { UploadOutlined } from '@ant-design/icons';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const { Content } = Layout;
 const { Option } = Select;
@@ -104,13 +106,26 @@ function Steps() {
     },
   };
 
-      const onFinish = (e) => {
-       console.log(e);
+
+      const onFinish = (values) => {
+        const input = document.getElementById("printForm");
+        console.log('input',input);
+        html2canvas(input).then((canvas) => {
+          const imgData = canvas.toDataURL("image/png");
+    
+          console.log(imgData);
+    
+          const pdf = new jsPDF();
+          pdf.addImage(imgData, "PNG", 20, 20);
+          pdf.save("download.pdf");
+        });
+    
+        console.log(values);
       };
 
   return (
-    <Content style={{ margin: "25px 25px" }}>
-
+    <Content style={{ margin: "25px 25px" }} >
+    <div id="printForm">
     {/* step1 */}
     <div className='c2 border border-2 rounded'>
     <div style={{textAlign:'center'}}>
@@ -635,6 +650,7 @@ function Steps() {
       </Form.Item>
 
     </Form>
+    </div>
     </div>
 
     {/* buttons */}

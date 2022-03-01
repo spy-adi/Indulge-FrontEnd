@@ -1,12 +1,9 @@
-import React, {useState} from "react";
+import React from "react";
 import { Layout } from "antd";
 import { Form, Input, Select, Button, Divider, Upload, message } from 'antd';
 import "../introPage.css";
-import { test, sector, btech4yr, im, dd, dm, mtech, phd, mba, msc2yr, msc3yr, qround,  } from "../../data";
 import { Link } from "react-router-dom";
 import { UploadOutlined } from '@ant-design/icons';
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
 
 const { Content } = Layout;
 const { Option } = Select;
@@ -22,73 +19,7 @@ const validateMessages = {
     },
   };
 
-function Steps() {
-     const [chSector,setChSector] = useState(false);
-     const [chBtech,setChBtech] = useState(false);
-     const [chDM,setChDM] = useState(false);
-     const [chDD,setChDD] = useState(false);
-     const [chIM,setChIM] = useState(false);
-     const [chMtech,setChMtech] = useState(false);
-     const [chPhD,setChPhD] = useState(false);
-     const [chMBA,setChMBA] = useState(false);
-     const [chMSC,setChMSC] = useState(false);
-     const [chMSCT,setChMSCT] = useState(false);
-     const[ch,setCh] = useState("n");
-    
-     function onClick1(){
-       if(ch==="y") setCh("n");
-       else setCh("y");
-     }
-
-     function onClick(){
-    }
-
-     function handleChangeSector(value) {
-        if(value=="other") setChSector(false);
-        else setChSector(true);
-      }
-
-      function handleChangeBtech(value) {
-        if(value=="y") setChBtech(false);
-        else setChBtech(true);
-        console.log(chBtech);
-      }
-
-      function handleChangeMtech(value) {
-        setChMtech(value);
-      }
-
-      function handleChangeDD(value) {
-        setChDD(value);
-      }
-
-      function handleChangeDM(value){
-          setChDM(value);
-      }
-
-      function handleChangeMBA(value){
-          setChMBA(value);
-      }
-
-      function handleChangePhD(value){
-          setChPhD(value);
-      }
-
-      function handleChangeIM(value){
-        setChIM(value);
-      }
-
-      function handleChangeIM(value){
-        setChIM(value);
-      }
-
-      function handleChangeMSC(value){
-        setChMSC(value);
-      }
-
-      function handleChangeMSCT(value){
-        setChMSCT(value);
-      }
+function PreviewINF() {
       
   const [form] = Form.useForm();
   
@@ -114,26 +45,13 @@ function Steps() {
     },
   };
 
-
-      const onFinish = (values) => {
-        const input = document.getElementById("printForm");
-        console.log('input',input);
-        html2canvas(input).then((canvas) => {
-          const imgData = canvas.toDataURL("image/png");
-    
-          console.log(imgData);
-    
-          const pdf = new jsPDF();
-          pdf.addImage(imgData, "PNG", 20, 20);
-          pdf.save("download.pdf");
-        });
-    
-        console.log(values);
+      const onFinish = (e) => {
+       console.log(e);
       };
 
   return (
-    <Content style={{ margin: "25px 25px" }} >
-    <div id="printForm">
+    <Content style={{ margin: "25px 25px" }}>
+
     {/* step1 */}
     <div className='c2 border border-2 rounded'>
     <div style={{textAlign:'center'}}>
@@ -617,7 +535,7 @@ function Steps() {
       <Divider />
 
       <Form.Item
-        name={'stipend'}
+        name={'nor'}
         label="Stipend (per month)"
         rules={[
           {
@@ -636,7 +554,7 @@ function Steps() {
       </Form.Item>
 
       <Form.Item
-        name={'ctc'}
+        name={'nor'}
         label="CTC Details, if PPO provided"
         // rules={[
         //   {
@@ -648,7 +566,7 @@ function Steps() {
       </Form.Item>
 
       <Form.Item
-        name={'doc'}
+        name={'nor'}
         label="Upload Document (optional)"
       >
       <p>Company may upload documents like JD, Eligibility criteria, etc</p>
@@ -659,7 +577,6 @@ function Steps() {
 
     </Form>
     </div>
-    </div>
 
     {/* buttons */}
     <Form
@@ -668,17 +585,11 @@ function Steps() {
       name="nest-messages"
       onFinish={onFinish} 
       validateMessages={validateMessages}
-    >.
+    >
         <Form.Item>
       <div style={{textAlign:'center'}}>
-      <Button type="primary"  hidden={ch==="y"} onClick={onClick1}>
-          Save & Preview
-        </Button>
-        <Button type="primary" style={{marginRight:'10px'}} hidden={ch==="n"} onClick={onClick1}>
-          Back
-        </Button>
-        <Button type="primary" htmlType="submit" hidden={ch==="n"} onClick={onClick}>
-          Submit
+      <Button type="primary" htmlType="submit">
+          Save
         </Button>
       </div>
         
@@ -688,4 +599,4 @@ function Steps() {
   );
 }
 
-export default Steps;
+export default PreviewINF;

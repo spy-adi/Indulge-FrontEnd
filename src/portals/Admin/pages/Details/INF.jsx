@@ -11,13 +11,16 @@ function INF() {
     { title: "Hr", field: "hr" },
     { title: "Location", field: "location" },
     { title: "Posted On", field: "postedOn", type: "Date" },
+    {title:"Details",filed:"url",render:(rowData)=>(
+      <a href={rowData.url}>View</a>
+    )},
   ];
 
   const data = [
-  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 0 },
-  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 1 },
-  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 2 },
-  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 3 }
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 0, url:"/ad/details/inf/job_id" },
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 1, url:"/ad/details/inf/job_id" },
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 2, url:"/ad/details/inf/job_id" },
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 3, url:"/ad/details/inf/job_id" }
 ];
   return (
         <Content style={{ margin: "10px 25px" }}>

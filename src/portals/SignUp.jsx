@@ -1,7 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Layout } from "antd";
 import axios from "axios";
+import AuthContext from "../context/auth/authContext";
+import Spinner from "../CommonComponents/Spinner";
+import { Navigate } from "react-router-dom";
 function Signup() {
+  const authContext = useContext(AuthContext);
+  const {register,isAuthenticated} = authContext;
   const [companyName, setcompanyName] = useState("");
   const [companyWebsite, setcompanyWebsite] = useState("");
   const [companySector, setcompanySector] = useState("");
@@ -14,7 +19,7 @@ function Signup() {
   const [isValidPassword, setisValidPassword] = useState(null);
   const [isPage1, setPage1] = useState(true);
 
-  const onSubmit = (e) => {
+  const onSubmit = async(e) => {
     e.preventDefault();
     console.log("email", email);
     const domain = email.slice(email.indexOf("@") + 1, email.lastIndexOf("."));
@@ -41,10 +46,19 @@ function Signup() {
     if (password !== confirmpassword || password === "")
       setisValidPassword(false);
     else setisValidPassword(true);
-
-
-    {
-      
+    const formData = {
+      cname:companyName,
+      category:companySector,
+      curl:companyWebsite,
+      cpassword:password,
+      cemail:email
+    }
+    await register(formData);
+    if(isAuthenticated){
+      if(authContext.user===null){
+        <Spinner/>
+      }
+      else return <Navigate to="/reg"/>
     }
   };
 

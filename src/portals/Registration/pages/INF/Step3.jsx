@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Layout, Form, Button, Select } from "antd";
 import { btech4yr, dd, dm, im  } from "../../data";
 import { Link } from "react-router-dom";
+import "../introPage.css";
 
 const { Content } = Layout;
 const { Option } = Select;
@@ -38,12 +39,12 @@ function Step3I() {
     <Button type="primary" style={{marginRight:'10px'}}>
           Back
         </Button>
+    <div className="border border-2 round c2">
     <div style={{textAlign:'center'}}>
     <h2 style={{margin:'0'}}>ELIGIBLE BRANCHES</h2>
     <p>(Admitted through JEE Advanced)</p>
     </div>
 
-    <div style={{margin:'4% 0'}}>
     <Form
       form={form}
       layout="vertical"

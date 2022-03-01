@@ -2,6 +2,7 @@ import React from "react";
 import { Layout } from "antd";
 import { Form, Input, Divider, Button } from 'antd';
 import { Link } from "react-router-dom";
+import "../introPage.css";
 
 const { Content } = Layout;
 
@@ -39,9 +40,9 @@ function Step2I() {
     <Button type="primary" style={{marginRight:'10px'}}>
           Back
         </Button>
+    <div className="border border-2 round c2">
     <div style={{textAlign:'center'}}>
     <h2>HR details</h2></div>
-    <div style={{margin:'4% 0'}}>
 
     <Form
       form={form}

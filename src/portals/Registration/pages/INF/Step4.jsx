@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { Layout, Form, Button, Select } from "antd";
 import { mba, msc2yr, msc3yr, mtech, phd } from "../../data";
 import { Link } from "react-router-dom";
+import "../introPage.css";
 
 const { Content } = Layout;
 const { Option } = Select;
@@ -48,12 +49,12 @@ function Step4I() {
     <Button type="primary" style={{marginRight:'10px'}}>
           Back
         </Button>
+        
+    <div className="border border-2 round c2">
     <div style={{textAlign:'center'}}>
     <h2 style={{margin:'0'}}>ELIGIBLE BRANCHES</h2>
     <p>(Admitted through JAM/GATE/CAT/NET)</p>
     </div>
-
-    <div style={{margin:'4% 0'}}>
     <Form
       form={form}
       layout="vertical"

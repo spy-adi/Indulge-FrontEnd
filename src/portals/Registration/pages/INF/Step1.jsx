@@ -3,6 +3,7 @@ import { Layout } from "antd";
 import { Form, Input, Select, Button } from 'antd';
 import { sector,duration } from "../../data";
 import { job, company } from "./dataINF";
+import "../introPage.css";
 import { Link } from "react-router-dom";
 
 const { Content } = Layout;
@@ -39,7 +40,7 @@ function Step1I() {
   return (
     <Content style={{ margin: "25px 25px" }}>
 
-    <div style={{margin:'5% 0'}}>
+    <div className="border border-2 round c2">
     <div style={{textAlign:'center'}}>
     <h2>Company & Job details</h2></div>
 

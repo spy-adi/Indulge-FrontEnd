@@ -1,5 +1,5 @@
 import React from "react";
-import "./introPage.css";
+import "../introPage.css";
 import { Layout } from "antd";
 import Table from "./table";
 import { Link } from "react-router-dom";
@@ -29,7 +29,7 @@ function INF() {
               </h6>
             </div>
             <div className="subscription-form-15 d-sm-flexjustify-content-center">
-                <Link to={"addNew/s1"}>
+                <Link to={"./addNew"}>
               <button
                 role="button"
                 className="btn btn-primary"

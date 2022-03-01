@@ -6,6 +6,16 @@ export default function Login() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
+//   const onSubmit = async e =>{
+//     e.preventDefault();
+//     if(id===""||password===""){
+//         setAlert("Please enter all the fields");
+//     }
+//     else{
+//         await login(user);
+//     }
+// }
+
   return (
     <Layout style={{ minHeight: "100vh"}}>
       <Layout className="site-layout">

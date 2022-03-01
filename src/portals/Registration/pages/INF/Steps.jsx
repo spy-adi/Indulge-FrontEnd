@@ -117,8 +117,8 @@ function Steps() {
 
       const onFinish = (values) => {
         const input = document.getElementById("printForm");
-        const h = input.offsetHeight();
-        const w = input.offsetWidth();
+        const h = input.offsetHeight;
+        const w = input.offsetWidth;
         console.log('input',input,h,w);
         html2canvas(input).then((canvas) => {
           const imgData = canvas.toDataURL("image/png");

@@ -9,11 +9,12 @@ function Table({data}) {
       icons={tableIcons}
       title="Posted Jobs"
       columns={[
-        { title: "Job Designation", field: "jd" },
-        { title: "Hr", field: "hr" },
-        { title: "Location", field: "location" },
-        { title: "Posted On", field: "postedOn", type: "Date" },
-      ]}
+    { title: "Company Name", field: "name" },
+    { title: "Job Designation", field: "jd" },
+    { title: "Hr", field: "hr" },
+    { title: "Location", field: "location" },
+    { title: "Posted On", field: "postedOn", type: "Date" },
+  ]}
       data={data}
       actions={[
         {

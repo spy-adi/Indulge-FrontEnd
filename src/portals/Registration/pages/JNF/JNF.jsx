@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 
 const { Content } = Layout;
 
+
 const data = [
-  { jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 0 },
-  { jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 1 },
-  { jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 2 },
-  { jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 3 }
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 0 },
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 1 },
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 2 },
+  { name: "ABC", jd: "Mehmet", hr: "Baran", postedOn: "dd/mm/yy", location: "WFH", id: 3 }
 ];
 function JNF() {
   return (

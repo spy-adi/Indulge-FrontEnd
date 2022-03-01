@@ -1,5 +1,6 @@
 export { default as Dashboard} from "../pages/Dashboard";
 export { default as Forums} from "../pages/Forums";
+export { default as Preview} from "../pages/Preview";
 export { default as JNF} from "../pages/JNF/JNF";
 export { default as Step1J} from "../pages/JNF/Step1";
 export { default as Step2J} from "../pages/JNF/Step2";
@@ -8,9 +9,4 @@ export { default as Step4J} from "../pages/JNF/Step4";
 export { default as Step5J} from "../pages/JNF/Step5";
 export { default as INF} from "../pages/INF/INF";
 export { default as Steps} from "../pages/INF/Steps";
-export { default as Step1I} from "../pages/INF/Step1";
-export { default as Step2I} from "../pages/INF/Step2";
-export { default as Step3I} from "../pages/INF/Step3";
-export { default as Step4I} from "../pages/INF/Step4";
-export { default as Step5I} from "../pages/INF/Step5";
-export { default as Preview} from "../pages/INF/Preview";
+export { default as PreviewINF} from "../pages/INF/PreviewINF";

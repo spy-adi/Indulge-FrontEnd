@@ -20,7 +20,7 @@ const validateMessages = {
     },
   };
 
-function Steps() {
+function PreviewINF() {
      const [chSector,setChSector] = useState(false);
      const [chBtech,setChBtech] = useState(false);
      const [chDM,setChDM] = useState(false);
@@ -648,7 +648,7 @@ function Steps() {
         <Form.Item>
       <div style={{textAlign:'center'}}>
       <Button type="primary" htmlType="submit">
-          Save & Preview
+          Save
         </Button>
       </div>
         
@@ -658,4 +658,4 @@ function Steps() {
   );
 }
 
-export default Steps;
+export default PreviewINF;

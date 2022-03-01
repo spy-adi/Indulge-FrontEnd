@@ -40,12 +40,7 @@ function Registration() {
             <Route path="/placement/addNew/s4" element={<Step4J />} />
             <Route path="/placement/addNew/s5" element={<Step5J />} />
             <Route path="/intern" element={<INF />} />
-            <Route path="/intern/addNew" element={<Steps />} />
-            {/* <Route path="/intern/addNew/s1" element={<Step1I />} />
-            <Route path="/intern/addNew/s2" element={<Step2I />} />
-            <Route path="/intern/addNew/s3" element={<Step3I />} />
-            <Route path="/intern/addNew/s4" element={<Step4I />} />
-            <Route path="/intern/addNew/s5" element={<Step5I />} /> */}
+            <Route path="intern/addNew" element={<Steps />} />
             <Route path="/intern/preview" element={<Preview />} />
           </Routes>
           <Footerr />

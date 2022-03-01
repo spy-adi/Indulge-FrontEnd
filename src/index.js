@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import {Login, Registration,Signup} from './portals';
+import {Admin, Login, Registration, Signup} from './portals';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
@@ -13,6 +13,7 @@ function App() {
               <Route path='/' element={<Login/>} />
               <Route path='/register' element={<Signup/>} />
               <Route path='reg/*' element={<Registration />} />
+              <Route path='ad/*' element={<Admin />} />
             </Routes>
       </Router>
     );

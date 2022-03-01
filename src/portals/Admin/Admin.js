@@ -2,13 +2,13 @@ import React from "react";
 import { Layout } from "antd";
 import { Headerr, Footerr, SideBar, Navbar } from "../../CommonComponents";
 import {
-  AdDashboard,
+  Dashboard,
   // Forums,
 } from "./components";
 import { Routes, Route } from "react-router-dom";
 import adminmenu from "./menu";
 
-function adRegistration() {
+function Admin() {
   return (
     <>
       <Navbar menu={adminmenu} />
@@ -17,7 +17,7 @@ function adRegistration() {
         <Layout className="site-layout">
           <Headerr />
           <Routes>
-            <Route path="/" element={<AdDashboard />} />
+            <Route path="/" element={<Dashboard />} />
             {/* <Route path="/forum" element={<Forums />} /> */}
           </Routes>
           <Footerr />
@@ -27,4 +27,4 @@ function adRegistration() {
   );
 }
 
-export default adRegistration;
+export default Admin;

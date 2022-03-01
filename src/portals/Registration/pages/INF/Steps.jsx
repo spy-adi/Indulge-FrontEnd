@@ -117,8 +117,9 @@ function Steps() {
 
       const onFinish = (values) => {
         const input = document.getElementById("printForm");
-
-        console.log('input',input);
+        const h = input.offsetHeight();
+        const w = input.offsetWidth();
+        console.log('input',input,h,w);
         html2canvas(input).then((canvas) => {
           const imgData = canvas.toDataURL("image/png");
 
@@ -604,7 +605,7 @@ function Steps() {
       </Form.Item>
       
       <Form.Item
-        name={'nor'}
+        name={'noo'}
         label="Number of offers available for IIT(ISM) students"
         rules={[
           {

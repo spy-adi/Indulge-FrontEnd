@@ -117,10 +117,11 @@ function Steps() {
 
       const onFinish = (values) => {
         const input = document.getElementById("printForm");
+
         console.log('input',input);
         html2canvas(input).then((canvas) => {
           const imgData = canvas.toDataURL("image/png");
-    
+
           console.log(imgData);
     
           const pdf = new jsPDF();
@@ -677,7 +678,7 @@ function Steps() {
         <Button type="primary" style={{marginRight:'10px'}} hidden={ch==="n"} onClick={onClick1}>
           Back
         </Button>
-        <Button type="primary" htmlType="submit" hidden={ch==="n"} onClick={onClick}>
+        <Button type="primary" htmlType="submit" hidden={ch==="n"}>
           Submit
         </Button>
       </div>

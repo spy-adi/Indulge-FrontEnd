@@ -165,7 +165,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'} />
       </Form.Item>
       <Form.Item
         name={['company', 'email']}
@@ -176,7 +176,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'} />
       </Form.Item>
 
       <Form.Item 
@@ -190,6 +190,7 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeSector}
+      disabled={ch=='y'}
     >
       {sector}
     </Select>
@@ -199,7 +200,7 @@ function Steps() {
         name={['company', 'sector1']}
         label="If selected other, Industry Sector:"
       >
-        <Input disabled={chSector} />
+        <Input disabled={chSector&&(ch=='y')} />
       </Form.Item>
 
       <Form.Item
@@ -211,11 +212,11 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
 
       <Form.Item name={['job', 'description']} label="Job Description">
-        <Input.TextArea />
+        <Input.TextArea disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['job', 'place']}
@@ -226,7 +227,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       
     </Form>
@@ -253,7 +254,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['hr', 'designation']}
@@ -264,7 +265,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['hr', 'email']}
@@ -275,7 +276,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['hr', 'phone']}
@@ -286,7 +287,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Divider />
       <h5>Alternate HR details</h5>
@@ -294,25 +295,25 @@ function Steps() {
         name={['Ahr', 'name']}
         label="Name"
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['Ahr', 'designation']}
         label="Designation"
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['Ahr', 'email']}
         label="Email"
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item
         name={['Ahr', 'phone']}
         label="Phone Number"
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       <Form.Item>
       <div style={{textAlign:'right'}}>
@@ -338,7 +339,7 @@ function Steps() {
     >
     
     <Form.Item label="Requirement of B.Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -352,14 +353,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeBtech}
-      disabled = {chBtech}
+      disabled = {chBtech&&(ch=='y')}
     >
       {btech4yr}
     </Select>
       </Form.Item>
     
       <Form.Item label="Requirement of Double Major?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -373,14 +374,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chDM}
+      disabled = {chDM&&(ch=='y')}
     >
       {dm}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of Dual Degree Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -394,14 +395,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chDD}
+      disabled = {chDD&&(ch=='y')}
     >
       {dd}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of Integrated M.Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -415,14 +416,29 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeIM}
-      disabled = {chIM}
+      disabled = {chIM&&(ch=='y')}
     >
       {im}
     </Select>
       </Form.Item>
-      
-      <Form.Item label="Do you want to hire students depending on skills?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+    
+    </Form>
+    </div>
+    
+    {/* step1 */}
+    <div className='c2 border border-2 rounded'>
+    <div style={{textAlign:'center'}}>
+    <h2>Company & Job details</h2></div>
+
+    <Form
+      form={form}
+      layout="vertical"
+      name="nest-messages"
+      onFinish={onFinish}  
+      validateMessages={validateMessages}
+    >
+     <Form.Item label="Do you want to hire students depending on skills?">
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -436,7 +452,7 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeSkill}
-      disabled = {chSS}
+      disabled = {chSS&&(ch=='y')}
     >
       {ss}
     </Select>
@@ -446,8 +462,9 @@ function Steps() {
         name={['skills']}
         label="If selected other, Skills required :"
       >
-        <Input disabled={skill} />
+        <Input disabled={skill&&(ch=='y')} />
       </Form.Item>
+      
     </Form>
     </div>
 
@@ -467,7 +484,7 @@ function Steps() {
     >
     
     <Form.Item label="Requirement of M.Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -481,14 +498,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMtech}
+      disabled = {chMtech&&(ch=='y')}
     >
       {mtech}
     </Select>
       </Form.Item>
     
       <Form.Item label="Requirement of PhD Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -502,14 +519,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chPhD}
+      disabled = {chPhD&&(ch=='y')}
     >
       {phd}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of MBA?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -523,14 +540,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMBA}
+      disabled = {chMBA&&(ch=='y')}
     >
       {mba}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of MSc Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -544,14 +561,14 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMSC}
+      disabled = {chMSC&&(ch=='y')}
     >
       {msc2yr}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of MSc Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -565,7 +582,7 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMSCT}
+      disabled = {chMSCT&&(ch=='y')}
     >
       {msc3yr}
     </Select>
@@ -596,7 +613,7 @@ function Steps() {
           },
         ]}
         >
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -611,7 +628,7 @@ function Steps() {
         //   },
         // ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
 
       <Form.Item label="Type of test">
@@ -621,7 +638,7 @@ function Steps() {
       style={{ width: '100%' }}
       placeholder="Please select"
       defaultValue={[]}
-      onChange={handleChange}
+      onChange={handleChange&&(ch=='y')}
     >
       {test}
     </Select>
@@ -635,6 +652,7 @@ function Steps() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
+      disabled={ch=='y'}
     >
       {qround}
     </Select>
@@ -649,7 +667,7 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
       
       <Divider />
@@ -663,11 +681,11 @@ function Steps() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={ch=='y'}/>
       </Form.Item>
 
       <Form.Item label="Provision for Pre Placement Offer (PPO)">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={ch=='y'}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -682,7 +700,7 @@ function Steps() {
         //   },
         // ]}
       >
-        <Input.TextArea />
+        <Input.TextArea disabled={ch=='y'}/>
       </Form.Item>
 
       <Form.Item
@@ -691,7 +709,7 @@ function Steps() {
       >
       <p>Company may upload documents like JD, Eligibility criteria, etc</p>
       <Upload {...props}>
-            <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            <Button disabled={ch=='y'} icon={<UploadOutlined />}>Click to Upload</Button>
         </Upload>
       </Form.Item>
 

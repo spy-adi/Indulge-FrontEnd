@@ -146,6 +146,14 @@ qround.push(<Option key={"gd"}>{"Group Discussion"}</Option>);
 qround.push(<Option key={"cs"}>{"Case Study"}</Option>);
 qround.push(<Option key={"int"}>{"Interview"}</Option>);
 
+const ss = [];
+
+ss.push(<Option key={"cc"}>{"C, C++, Java, Python, etc"}</Option>);
+ss.push(<Option key={"fsd"}>{"Full Stack Development (Frontend/Backend)"}</Option>);
+ss.push(<Option key={"aiml"}>{"AI/ ML/DL, Data Science"}</Option>);
+ss.push(<Option key={"da"}>{"Business/Data Analytics, Product Management"}</Option>);
+ss.push(<Option key={"other"}>{"Other"}</Option>);
+
 export {
     qround,
     test,
@@ -160,4 +168,5 @@ export {
     dm,
     duration,
     phd,
+    ss,
   }

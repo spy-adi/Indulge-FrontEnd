@@ -1,20 +1,35 @@
-import React, {useState} from "react";
-import { Layout } from "antd";
-
+import React, {useContext, useState} from "react";
+import { Alert, Layout } from "antd";
+import AuthContext from "../context/auth/authContext";
+import AlertContext from "../context/alert/alertContext";
+import Spinner from "../CommonComponents/Spinner";
+import { Navigate } from "react-router-dom";
 export default function Login() {
-
+  const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
+  const {setAlert} = alertContext;
+  const {isAuthenticated,login,error,clearError} = authContext;
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
-//   const onSubmit = async e =>{
-//     e.preventDefault();
-//     if(id===""||password===""){
-//         setAlert("Please enter all the fields");
-//     }
-//     else{
-//         await login(user);
-//     }
-// }
+  const onSubmit = async e =>{
+    e.preventDefault();
+    if(email===""||password===""){
+        setAlert("Please enter all the fields");
+        clearError();
+    }
+    else{
+        await login({cemail:email,cpassword:password});
+    }
+}
+if (isAuthenticated){ 
+  if(authContext.user===null){
+    <Spinner/>
+  }
+  else{ 
+    return <Navigate to="/reg/" />
+  }
+}
 
   return (
     <Layout style={{ minHeight: "100vh"}}>
@@ -77,7 +92,7 @@ export default function Login() {
                               type="submit"
                               style={{ width: "80%", marginTop: "3%" }}
                               class="btn btn-primary"
-                              // onClick={onSubmit}
+                              onClick={onSubmit}
                             >
                               LogIn
                             </button>

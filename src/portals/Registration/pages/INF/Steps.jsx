@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Layout } from "antd";
 import { Form, Input, Select, Button, Divider, Upload, message } from 'antd';
 import "../introPage.css";
-import { test, sector, btech4yr, im, dd, dm, mtech, phd, mba, msc2yr, msc3yr, qround,  } from "../../data";
+import { ss, test, sector, btech4yr, im, dd, dm, mtech, phd, mba, msc2yr, msc3yr, qround,  } from "../../data";
 import { Link } from "react-router-dom";
 import { UploadOutlined } from '@ant-design/icons';
 import html2canvas from "html2canvas";
@@ -33,17 +33,21 @@ function Steps() {
      const [chMBA,setChMBA] = useState(false);
      const [chMSC,setChMSC] = useState(false);
      const [chMSCT,setChMSCT] = useState(false);
-     const[ch,setCh] = useState("n");
+     const [chSS,setChSS] = useState(false);
+     const [ch,setCh] = useState("n");
+     const [skill,setSkill] = useState("n");
     
      function onClick1(){
        if(ch==="y") setCh("n");
        else setCh("y");
      }
 
-     function onClick(){
-    }
+     function handleChangeSkill(value) {
+        if(value=="other") setSkill(false);
+        else setSkill(true);
+      }
 
-     function handleChangeSector(value) {
+      function handleChangeSector(value) {
         if(value=="other") setChSector(false);
         else setChSector(true);
       }
@@ -87,6 +91,10 @@ function Steps() {
       }
 
       function handleChangeMSCT(value){
+        setChMSCT(value);
+      }
+
+      function handleChangeSS(value){
         setChMSCT(value);
       }
       
@@ -399,7 +407,7 @@ function Steps() {
         </Select>
       </Form.Item>
 
-      <Form.Item disabled label="If the response of previous question is YES, please select the eligible branches">
+      <Form.Item label="If the response of previous question is YES, please select the eligible branches">
       <Select
       mode="multiple"
       allowClear
@@ -411,6 +419,34 @@ function Steps() {
     >
       {im}
     </Select>
+      </Form.Item>
+      
+      <Form.Item label="Do you want to hire students depending on skills?">
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Option value="y">Yes</Option>
+        <Option value="n">No</Option>
+        </Select>
+      </Form.Item>
+
+      <Form.Item disabled label="If the response of previous question is YES, please select the eligible skills">
+      <Select
+      mode="multiple"
+      allowClear
+      style={{ width: '100%' }}
+      placeholder="Please select"
+      defaultValue={[]}
+      onChange={handleChangeSkill}
+      disabled = {chSS}
+    >
+      {ss}
+    </Select>
+      </Form.Item>
+
+      <Form.Item
+        name={['skills']}
+        label="If selected other, Skills required :"
+      >
+        <Input disabled={skill} />
       </Form.Item>
     </Form>
     </div>

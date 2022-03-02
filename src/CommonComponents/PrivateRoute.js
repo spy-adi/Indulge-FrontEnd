@@ -5,7 +5,7 @@ import Spinner from "./Spinner";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
     const authContext = useContext(AuthContext);
-    const { isAuthenticated,loading ,user } = authContext;
+    const { isAuthenticated,loading} = authContext;
     if (loading) return <Spinner />;
     if (isAuthenticated) return <Component />;
   return <Navigate to='/' />;

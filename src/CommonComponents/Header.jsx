@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { Button, Layout, notification } from "antd";
 import "../index.css";
 import { BellTwoTone } from "@ant-design/icons";
-
+import AuthContext from "../context/auth/authContext";
 const { Header } = Layout;
 
 const openNotification = (placement) => {
@@ -15,6 +15,8 @@ const openNotification = (placement) => {
 };
 
 function Headerr() {
+  const authContext = useContext(AuthContext);
+  const {logout} = authContext;
   const [size, setSize] = useState(window.innerWidth);
   React.useEffect(() => {
     function handleResize() {
@@ -63,7 +65,7 @@ function Headerr() {
           </Button>
           <span>
             <Button type="primary" danger style={{ marginRight: "10px" }}>
-              <a href="/">Log Out</a>
+            <a href="#"  onClick  = {()=>{logout();console.log("logout");}} >Log Out</a>
             </Button>
           </span>
         </div>

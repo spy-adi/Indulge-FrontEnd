@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Menu, Drawer, Button, notification } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "../index.css";
 import { BellTwoTone } from "@ant-design/icons";
+import AuthContext from "../context/auth/authContext";
 
 const { SubMenu } = Menu;
 const openNotification = (placement) => {
@@ -15,6 +16,8 @@ const openNotification = (placement) => {
   });
 };
 function Navbar(props) {
+  const authContext = useContext(AuthContext);
+  const {logout} = authContext;
   const [visible, setVisible] = useState(false);
   function handleClick(event) {
     localStorage.setItem("showSession","true");
@@ -65,8 +68,9 @@ function Navbar(props) {
         <BellTwoTone />
       </Button>
       <span>
-        <Button type="primary" danger style={{marginRight:"10px"}}>
-          <a href="/">Log Out</a>
+        <Button type="primary" danger style={{marginRight:"10px"}}
+       >
+         <a href="#"  onClick  = {()=>{logout();console.log("logout");}} >Log Out</a>
         </Button>
       </span>
       </div>

@@ -1,15 +1,25 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Layout } from "antd";
 import axios from "axios";
-import AuthContext from "../context/auth/authContext";
 import Spinner from "../CommonComponents/Spinner";
-import { Navigate } from "react-router-dom";
+import AuthContext from "../context/auth/authContext";
+import AlertContext from "../context/alert/alertContext";
+import Alert from "../CommonComponents/Alert";
+import {Navigate} from "react-router-dom";
 function Signup() {
   const authContext = useContext(AuthContext);
-  const {register,isAuthenticated} = authContext;
+  const alertContext =  useContext(AlertContext);
+  const {setAlert} = alertContext;
+  const{register,isAuthenticated,error,clearError} = authContext;
+  useEffect(()=>{
+    if(error=="User already exists"){
+      setAlert(error);
+      clearError();
+    }
+  },[error,isAuthenticated,setAlert])
   const [companyName, setcompanyName] = useState("");
   const [companyWebsite, setcompanyWebsite] = useState("");
-  const [companySector, setcompanySector] = useState("");
+  // const [companySector, setcompanySector] = useState("");
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -19,26 +29,31 @@ function Signup() {
   const [isValidPassword, setisValidPassword] = useState(null);
   const [isPage1, setPage1] = useState(true);
 
-  const onSubmit = async(e) => {
+  const [mx_found, setMx_Found] = useState(null);
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     console.log("email", email);
     const domain = email.slice(email.indexOf("@") + 1, email.lastIndexOf("."));
     let is_mx_found;
     var domains = "gmail,outlook,hotmail,yahoo,rediff";
-    if (domains.indexOf(domain) !== -1) {
+    console.log(domains.indexOf(domain));
+    if (domains.indexOf(domain) === -1) {
+      console.log("not present");
+
       axios
         .get(
-          `https://emailvalidation.abstractapi.com/v1/?api_key=39b95a9e2bf1439882ef74f471d31174&email=${email}`
+          `http://apilayer.net/api/check?access_key=7f74bff4705f36dc6b4cfc468b4a3b5b&email=${email}`
         )
-        .then((resp) => {
-          is_mx_found = resp.data.is_mx_found.value;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else alert("");
+        .then((resp) => setMx_Found(resp.data.mx_found))
+        // .then((resp) => console.log(resp.data.mx_found))
+        .catch((err) => console.log(err));
+    }
+    //  else alert("");
 
-    if (!is_mx_found) {
+    // setTimeout(() => {}, 2000);
+    console.log(mx_found);
+    if (!mx_found) {
       setemail("");
       setisValidEmail(false);
     } else setisValidEmail(true);
@@ -46,25 +61,20 @@ function Signup() {
     if (password !== confirmpassword || password === "")
       setisValidPassword(false);
     else setisValidPassword(true);
-    const formData = {
-      cname:companyName,
-      category:companySector,
-      curl:companyWebsite,
-      cpassword:password,
-      cemail:email
-    }
-    await register(formData);
-    if(isAuthenticated){
-      if(authContext.user===null){
-        <Spinner/>
-      }
-      else return <Navigate to="/reg"/>
-    }
+    if(isValidEmail&&isValidPassword) await register({cemail:email,cname:companyName,cpassword:password,curl:companyWebsite});
   };
-
+  if (isAuthenticated){ 
+    if(authContext.user===null){
+      <Spinner/>
+    }
+    else{ 
+      return <Navigate to="/reg/" />
+    }
+  }
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout className="site-layout">
+      <Alert/>
         <div
           className="container-fluid"
           style={{
@@ -128,7 +138,7 @@ function Signup() {
                               )}
                             </div>
 
-                            <div
+                            {/* <div
                               className="form-group"
                               style={{ margin: "8%" }}>
                               <input
@@ -142,7 +152,7 @@ function Signup() {
                                 }
                                 required
                               />
-                            </div>
+                            </div> */}
 
                             <div
                               className="form-group"
@@ -168,7 +178,7 @@ function Signup() {
                             </button>
                           </div>
                         ) : (
-                          /******************************page 2  *************************************************/
+                          /***********page 2  ******************/
                           <div>
                             <div
                               className="form-group"
@@ -230,7 +240,7 @@ function Signup() {
                               className="form-group"
                               style={{ margin: "8%" }}>
                               <input
-                                type="text"
+                                type="password"
                                 className={
                                   isValidPassword === null
                                     ? "form-control"

@@ -65,8 +65,7 @@ function Signup() {
   };
   if (isAuthenticated){ 
     if(authContext.user===null){
-      <Spinner/>
-    }
+      <Spinner/>}
     else{ 
       return <Navigate to="/reg/" />
     }
@@ -158,7 +157,7 @@ function Signup() {
                               className="form-group"
                               style={{ margin: "8%" }}>
                               <input
-                                type="text"
+                                type="email"
                                 className="form-control"
                                 placeholder="Enter Website"
                                 name="website"

@@ -42,9 +42,7 @@ function INF() {
           </div>
         </div>
         <hr />
-        <div className="introPage-body row">
-          <Table data={data}/>
-        </div>
+
       </div>
     </Content>
   );

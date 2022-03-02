@@ -1,7 +1,6 @@
 import React from "react";
 import "./introPage.css";
 import { Layout } from "antd";
-import Table from "./table";
 import { Link } from "react-router-dom";
 
 const { Content } = Layout;
@@ -42,9 +41,6 @@ function JNF() {
           </div>
         </div>
         <hr />
-        <div className="introPage-body row">
-          <Table data={data}/>
-        </div>
       </div>
     </Content>
   );

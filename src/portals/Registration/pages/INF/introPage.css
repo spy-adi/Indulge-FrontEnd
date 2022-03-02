@@ -4,7 +4,10 @@
   text-align: center;
   letter-spacing: 2.8125px;
   text-transform: uppercase;
+  color: aliceblue !important;
   text-shadow: 2px 2px #000;
+  width: 80%;
+  text-align: center;
 }
 .content-text--text {
   text-shadow: 2px 2px #000;
@@ -13,8 +16,20 @@
   display: flex;
   flex-direction: column;
 }
-
 .c2 {
   padding: 5%;
   margin: 5% 8%;
+}
+.jnf-bg {
+  filter: blur(4.5px);
+  opacity: 0.7;
+  background-size: contain;
+  background-position: center;
+}
+
+.jnf-h {
+  position: absolute;
+  top: 50%;
+  left: 59%;
+  transform: translate(-50%, -50%);
 }

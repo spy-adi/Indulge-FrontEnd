@@ -2,10 +2,9 @@ import React from "react";
 import "./introPage.css";
 import { Layout } from "antd";
 import { Link } from "react-router-dom";
-
 const { Content } = Layout;
 
-function JNF() {
+function INF() {
   return (
     <Content style={{ margin: "10px 25px" }}>
       <div className="container">
@@ -25,7 +24,7 @@ function JNF() {
               </h6>
             </div>
             <div className="d-sm-flexjustify-content-center">
-              <Link to={"addNew/s1"}>
+              <Link to={"addNew"}>
                 <button
                   role="button"
                   className="btn btn-primary"
@@ -41,4 +40,4 @@ function JNF() {
     </Content>
   );
 }
-export default JNF;
+export default INF;

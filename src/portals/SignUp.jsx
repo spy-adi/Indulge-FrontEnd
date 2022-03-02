@@ -5,18 +5,18 @@ import Spinner from "../CommonComponents/Spinner";
 import AuthContext from "../context/auth/authContext";
 import AlertContext from "../context/alert/alertContext";
 import Alert from "../CommonComponents/Alert";
-import {Navigate} from "react-router-dom";
+import { Navigate } from "react-router-dom";
 function Signup() {
-  const authContext = useContext(AuthContext);
-  const alertContext =  useContext(AlertContext);
-  const {setAlert} = alertContext;
-  const{register,isAuthenticated,error,clearError} = authContext;
-  useEffect(()=>{
-    if(error=="User already exists"){
-      setAlert(error);
-      clearError();
-    }
-  },[error,isAuthenticated,setAlert])
+  // const authContext = useContext(AuthContext);
+  // const alertContext = useContext(AlertContext);
+  // const { setAlert } = alertContext;
+  // const { register, isAuthenticated, error, clearError } = authContext;
+  // useEffect(() => {
+  //   if (error === "User already exists") {
+  //     setAlert(error);
+  //     clearError();
+  //   }
+  // }, [error, isAuthenticated, setAlert]);
   const [companyName, setcompanyName] = useState("");
   const [companyWebsite, setcompanyWebsite] = useState("");
   // const [companySector, setcompanySector] = useState("");
@@ -29,51 +29,54 @@ function Signup() {
   const [isValidPassword, setisValidPassword] = useState(null);
   const [isPage1, setPage1] = useState(true);
 
-  const [mx_found, setMx_Found] = useState(null);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log("email", email);
     const domain = email.slice(email.indexOf("@") + 1, email.lastIndexOf("."));
-    let is_mx_found;
     var domains = "gmail,outlook,hotmail,yahoo,rediff";
-    console.log(domains.indexOf(domain));
+    console.log("domain is present", domains.indexOf(domain));
+    let p;
     if (domains.indexOf(domain) === -1) {
       console.log("not present");
-
-      axios
+      await axios
         .get(
-          `http://apilayer.net/api/check?access_key=7f74bff4705f36dc6b4cfc468b4a3b5b&email=${email}`
+          `http://apilayer.net/api/check?access_key=964f8e26ac3bd8bd478fdd3b9202ca7f&email=${email}`
         )
-        .then((resp) => setMx_Found(resp.data.mx_found))
-        // .then((resp) => console.log(resp.data.mx_found))
+        .then((resp) => {
+          p = resp.data.mx_found;
+        })
         .catch((err) => console.log(err));
     }
-    //  else alert("");
-
-    // setTimeout(() => {}, 2000);
-    console.log(mx_found);
-    if (!mx_found) {
+    if (p === true) {
+      setisValidEmail(true);
+    } else {
       setemail("");
       setisValidEmail(false);
-    } else setisValidEmail(true);
+    }
 
     if (password !== confirmpassword || password === "")
       setisValidPassword(false);
     else setisValidPassword(true);
-    if(isValidEmail&&isValidPassword) await register({cemail:email,cname:companyName,cpassword:password,curl:companyWebsite});
+
+    // if (isValidEmail && isValidPassword)
+    //   await register({
+    //     cemail: email,
+    //     cname: companyName,
+    //     cpassword: password,
+    //     curl: companyWebsite,
+    //   });
   };
-  if (isAuthenticated){ 
-    if(authContext.user===null){
-      <Spinner/>}
-    else{ 
-      return <Navigate to="/reg/" />
-    }
-  }
+  // if (isAuthenticated) {
+  //   if (authContext.user === null) {
+  //     <Spinner />;
+  //   } else {
+  //     return <Navigate to="/reg/" />;
+  //   }
+  // }
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Layout className="site-layout">
-      <Alert/>
+        <Alert />
         <div
           className="container-fluid"
           style={{
@@ -136,22 +139,6 @@ function Signup() {
                                 <div className="invalid-feedback">{`Enter a Valid Email`}</div>
                               )}
                             </div>
-
-                            {/* <div
-                              className="form-group"
-                              style={{ margin: "8%" }}>
-                              <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Enter Sector"
-                                name="sector"
-                                value={companySector}
-                                onChange={(e) =>
-                                  setcompanySector(e.target.value)
-                                }
-                                required
-                              />
-                            </div> */}
 
                             <div
                               className="form-group"

@@ -35,12 +35,12 @@ function PreviewINF() {
 
     
      function handleChangeSector(value) {
-        if(value=="other") setChSector(false);
+        if(value==="other") setChSector(false);
         else setChSector(true);
       }
 
       function handleChangeBtech(value) {
-        if(value=="y") setChBtech(false);
+        if(value==="y") setChBtech(false);
         else setChBtech(true);
         console.log(chBtech);
       }

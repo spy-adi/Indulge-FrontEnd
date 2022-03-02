@@ -31,6 +31,7 @@ function PreviewINF() {
      const [chMBA,setChMBA] = useState(false);
      const [chMSC,setChMSC] = useState(false);
      const [chMSCT,setChMSCT] = useState(false);
+     const [edit, setEdit] = useState(true);
 
     
      function handleChangeSector(value) {
@@ -80,6 +81,10 @@ function PreviewINF() {
         setChMSCT(value);
       }
       
+      function editable(){
+        setEdit(!edit);
+      }
+
   const [form] = Form.useForm();
   
   function handleChange(value) {
@@ -132,7 +137,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item
         name={['company', 'email']}
@@ -143,7 +148,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
 
       <Form.Item 
@@ -157,6 +162,7 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeSector}
+      disabled={edit}
     >
       {sector}
     </Select>
@@ -166,7 +172,7 @@ function PreviewINF() {
         name={['company', 'sector1']}
         label="If selected other, Industry Sector:"
       >
-        <Input disabled={chSector} />
+        <Input disabled={chSector&&edit} />
       </Form.Item>
 
       <Form.Item
@@ -178,11 +184,11 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit}/>
       </Form.Item>
 
       <Form.Item name={['job', 'description']} label="Job Description">
-        <Input.TextArea />
+        <Input.TextArea disabled={edit}/>
       </Form.Item>
       <Form.Item
         name={['job', 'place']}
@@ -193,7 +199,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       
     </Form>
@@ -220,7 +226,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item
         name={['hr', 'designation']}
@@ -231,7 +237,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item
         name={['hr', 'email']}
@@ -242,7 +248,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit}/>
       </Form.Item>
       <Form.Item
         name={['hr', 'phone']}
@@ -253,7 +259,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input  disabled={edit} />
       </Form.Item>
       <Divider />
       <h5>Alternate HR details</h5>
@@ -261,25 +267,25 @@ function PreviewINF() {
         name={['Ahr', 'name']}
         label="Name"
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item
         name={['Ahr', 'designation']}
         label="Designation"
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item
         name={['Ahr', 'email']}
         label="Email"
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item
         name={['Ahr', 'phone']}
         label="Phone Number"
       >
-        <Input />
+        <Input disabled={edit} />
       </Form.Item>
       <Form.Item>
       <div style={{textAlign:'right'}}>
@@ -305,7 +311,7 @@ function PreviewINF() {
     >
     
     <Form.Item label="Requirement of B.Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -319,14 +325,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeBtech}
-      disabled = {chBtech}
+      disabled = {chBtech&&edit}
     >
       {btech4yr}
     </Select>
       </Form.Item>
     
       <Form.Item label="Requirement of Double Major?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -340,14 +346,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chDM}
+      disabled = {chDM&&edit}
     >
       {dm}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of Dual Degree Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -361,14 +367,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chDD}
+      disabled = {chDD&&edit}
     >
       {dd}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of Integrated M.Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -382,7 +388,7 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChangeIM}
-      disabled = {chIM}
+      disabled = {chIM&&edit}
     >
       {im}
     </Select>
@@ -406,7 +412,7 @@ function PreviewINF() {
     >
     
     <Form.Item label="Requirement of M.Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -420,14 +426,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMtech}
+      disabled = {chMtech&&edit}
     >
       {mtech}
     </Select>
       </Form.Item>
     
       <Form.Item label="Requirement of PhD Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -441,14 +447,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chPhD}
+      disabled = {chPhD&&edit}
     >
       {phd}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of MBA?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -462,14 +468,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMBA}
+      disabled = {chMBA&&edit}
     >
       {mba}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of MSc Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -483,14 +489,14 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMSC}
+      disabled = {chMSC&&edit}
     >
       {msc2yr}
     </Select>
       </Form.Item>
 
       <Form.Item label="Requirement of MSc Tech Students?">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -504,7 +510,7 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
-      disabled = {chMSCT}
+      disabled = {chMSCT&&edit}
     >
       {msc3yr}
     </Select>
@@ -535,7 +541,7 @@ function PreviewINF() {
           },
         ]}
         >
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -550,7 +556,7 @@ function PreviewINF() {
         //   },
         // ]}
       >
-        <Input />
+        <Input disabled={edit}/>
       </Form.Item>
 
       <Form.Item label="Type of test">
@@ -561,6 +567,7 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
+      disabled={edit}
     >
       {test}
     </Select>
@@ -574,6 +581,7 @@ function PreviewINF() {
       placeholder="Please select"
       defaultValue={[]}
       onChange={handleChange}
+      disabled={edit}
     >
       {qround}
     </Select>
@@ -588,7 +596,7 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit}/>
       </Form.Item>
       
       <Divider />
@@ -602,11 +610,11 @@ function PreviewINF() {
           },
         ]}
       >
-        <Input />
+        <Input disabled={edit}/>
       </Form.Item>
 
       <Form.Item label="Provision for Pre Placement Offer (PPO)">
-        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange}>
+        <Select defaultValue="Select" style={{ width: 120 }} onChange={handleChange} disabled={edit}>
         <Option value="y">Yes</Option>
         <Option value="n">No</Option>
         </Select>
@@ -621,7 +629,7 @@ function PreviewINF() {
         //   },
         // ]}
       >
-        <Input.TextArea />
+        <Input.TextArea disabled={edit}/>
       </Form.Item>
 
       <Form.Item
@@ -629,7 +637,7 @@ function PreviewINF() {
         label="Upload Document (optional)"
       >
       <p>Company may upload documents like JD, Eligibility criteria, etc</p>
-      <Upload {...props}>
+      <Upload {...props} disabled={edit}>
             <Button icon={<UploadOutlined />}>Click to Upload</Button>
         </Upload>
       </Form.Item>
@@ -647,8 +655,16 @@ function PreviewINF() {
     >
         <Form.Item>
       <div style={{textAlign:'center'}}>
-      <Button type="primary" htmlType="submit">
-          Save
+      <Button type="primary" style={{marginRight:'10px'}}  hidden={!edit} onClick={editable}>
+          Edit
+        </Button>
+        <Button type="primary" style={{marginRight:'10px'}} hidden={edit} onClick={editable}>
+          Unedit
+        </Button>
+        <Button type="primary" htmlType="submit" hidden={!edit}>
+          Print
+        </Button> <Button type="primary" htmlType="submit" hidden={edit}>
+          Save and Print
         </Button>
       </div>
         

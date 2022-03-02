@@ -9,7 +9,7 @@ function Signup() {
   const {register,isAuthenticated} = authContext;
   const [companyName, setcompanyName] = useState("");
   const [companyWebsite, setcompanyWebsite] = useState("");
-  const [companySector, setcompanySector] = useState("");
+  // const [companySector, setcompanySector] = useState("");
 
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -48,7 +48,7 @@ function Signup() {
     else setisValidPassword(true);
     const formData = {
       cname:companyName,
-      category:companySector,
+      // category:companySector,
       curl:companyWebsite,
       cpassword:password,
       cemail:email
@@ -128,7 +128,7 @@ function Signup() {
                               )}
                             </div>
 
-                            <div
+                            {/* <div
                               className="form-group"
                               style={{ margin: "8%" }}>
                               <input
@@ -142,13 +142,13 @@ function Signup() {
                                 }
                                 required
                               />
-                            </div>
+                            </div> */}
 
                             <div
                               className="form-group"
                               style={{ margin: "8%" }}>
                               <input
-                                type="text"
+                                type="email"
                                 className="form-control"
                                 placeholder="Enter Website"
                                 name="website"
